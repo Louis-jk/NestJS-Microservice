@@ -102,3 +102,9 @@ dist
 
 # TernJS port file
 .tern-port
+
+#prettier
+.prettierrc
+
+@eslint
+.eslintrc.js
