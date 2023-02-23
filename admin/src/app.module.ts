@@ -9,7 +9,6 @@ import * as dotenv from 'dotenv';
 dotenv.config();
 @Module({
   imports: [
-    ProjectModule,
     TypeOrmModule.forRoot({
       type: 'mysql',
       host: process.env.DB_HOST,
@@ -20,8 +19,9 @@ dotenv.config();
       entities: [__dirname + '/**/*.entity{.ts,.js}'],
       synchronize: false,
     }),
+    ProjectModule,
   ],
-  controllers: [AppController, ProJectController],
+  controllers: [AppController],
   providers: [AppService],
 })
 export class AppModule {}
