@@ -14,4 +14,8 @@ export class ProjectService {
     const newProject = this.projectRepository.create(project);
     return this.projectRepository.save(newProject);
   }
+
+  getAllProject() {
+    return this.projectRepository.find();
+  }
 }

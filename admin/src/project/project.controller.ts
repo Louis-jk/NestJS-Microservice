@@ -6,6 +6,11 @@ import { CreateProjectDto } from './dto/project.dto';
 export class ProJectController {
   constructor(private projectService: ProjectService) {}
 
+  @Get()
+  getAllProjects() {
+    return this.projectService.getAllProject();
+  }
+
   @Post()
   createProject(@Body() newProject: CreateProjectDto) {
     return this.projectService.createProject(newProject);
