@@ -18,4 +18,12 @@ export class ProjectService {
   getAllProject() {
     return this.projectRepository.find();
   }
+
+  getProject(id: number) {
+    return this.projectRepository.findOne({
+      where: {
+        id,
+      },
+    });
+  }
 }
