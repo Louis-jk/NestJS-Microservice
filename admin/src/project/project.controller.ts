@@ -8,7 +8,7 @@ import {
 } from '@nestjs/common';
 import { ProjectService } from './project.service';
 import { CreateProjectDto } from './dto/project.dto';
-import { Project } from 'src/entities/project.entity';
+import { Project } from 'src/project/entity/project.entity';
 
 @Controller('projects')
 export class ProJectController {
