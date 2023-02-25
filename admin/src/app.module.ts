@@ -4,6 +4,8 @@ import { AppService } from './app.service';
 import { ProjectModule } from './project/project.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ProJectController } from './project/project.controller';
+import { UserController } from './user/user.controller';
+import { UserModule } from './user/user.module';
 import * as dotenv from 'dotenv';
 
 dotenv.config();
@@ -20,6 +22,7 @@ dotenv.config();
       synchronize: false,
     }),
     ProjectModule,
+    UserModule,
   ],
   controllers: [AppController],
   providers: [AppService],
