@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "paths": {
+      "@domain/*": ["./src/domain/*"],
+      "@infrastructure/*": ["./src/infrastructure/*"],
+      "@middlewara/*": ["./src/middleware/*"]
+    }
+  }
+}
