@@ -10,20 +10,23 @@ export class ProjectService {
     @InjectRepository(Project) private projectRepository: Repository<Project>,
   ) {}
 
-  createProject(project: CreateProjectDto) {
-    const newProject = this.projectRepository.create(project);
-    return this.projectRepository.save(newProject);
+  async create(project: CreateProjectDto): Promise<void> {
+    await this.projectRepository.save(project);
   }
 
-  getAllProject() {
+  findAll(): Promise<Project[]> {
     return this.projectRepository.find();
   }
 
-  getProject(id: number) {
+  findOne(id: number): Promise<Project> {
     return this.projectRepository.findOne({
       where: {
         id,
       },
     });
+  }
+
+  async remove(id: number): Promise<void> {
+    await this.projectRepository.delete(id);
   }
 }

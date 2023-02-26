@@ -5,6 +5,7 @@ import {
   Body,
   Param,
   ParseIntPipe,
+  Delete,
 } from '@nestjs/common';
 import { ProjectService } from './project.service';
 import { CreateProjectDto } from './dto/project.dto';
@@ -14,18 +15,23 @@ import { Project } from 'src/project/entity/project.entity';
 export class ProJectController {
   constructor(private projectService: ProjectService) {}
 
-  @Get()
-  getAllProjects() {
-    return this.projectService.getAllProject();
+  @Post()
+  createProject(@Body() newProject: CreateProjectDto): Promise<void> {
+    return this.projectService.create(newProject);
   }
 
-  @Post()
-  createProject(@Body() newProject: CreateProjectDto) {
-    return this.projectService.createProject(newProject);
+  @Get()
+  getAllProjects(): Promise<Project[]> {
+    return this.projectService.findAll();
   }
 
   @Get(':id')
   getProject(@Param('id', ParseIntPipe) id: number): Promise<Project> {
-    return this.projectService.getProject(id);
+    return this.projectService.findOne(id);
+  }
+
+  @Delete(':id')
+  deleteProject(@Param('id', ParseIntPipe) id: number): Promise<void> {
+    return this.projectService.remove(id);
   }
 }
