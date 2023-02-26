@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { User } from './entity/user.entity';
 import { Repository } from 'typeorm';
-import { CreateUserDto } from './dto/user.dto';
+import { CreateUserDto, UpdateUserDto } from './dto/user.dto';
 
 @Injectable()
 export class UserService {
@@ -24,6 +24,10 @@ export class UserService {
         id,
       },
     });
+  }
+
+  async update(id: number, user: UpdateUserDto): Promise<void> {
+    await this.userRepository.update({ id }, user);
   }
 
   async remove(id: number): Promise<void> {
