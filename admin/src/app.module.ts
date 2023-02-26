@@ -1,4 +1,4 @@
-import { Module } from '@nestjs/common';
+import { MiddlewareConsumer, Module, NestModule } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ProjectModule } from './project/project.module';
@@ -7,6 +7,7 @@ import { ProJectController } from './project/project.controller';
 import { UserController } from './user/user.controller';
 import { UserModule } from './user/user.module';
 import * as dotenv from 'dotenv';
+import { LoggerMiddleware } from './middleware/logger.middleware';
 
 dotenv.config();
 @Module({
@@ -27,4 +28,8 @@ dotenv.config();
   controllers: [AppController],
   providers: [AppService],
 })
-export class AppModule {}
+export class AppModule implements NestModule {
+  configure(consumer: MiddlewareConsumer) {
+    consumer.apply(LoggerMiddleware).forRoutes('users');
+  }
+}
