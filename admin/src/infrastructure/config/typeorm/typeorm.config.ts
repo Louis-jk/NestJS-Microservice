@@ -13,4 +13,5 @@ export const config: TypeOrmModuleOptions = {
   database: process.env.DB_DATABASE,
   entities: [__dirname + './../../**/*.entity{.ts,.js}'],
   synchronize: false,
+  timezone: 'Asia/Seoul',
 };
