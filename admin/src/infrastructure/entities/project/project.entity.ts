@@ -22,7 +22,7 @@ export class Project {
   enddate: string;
 
   @OneToMany(() => ProjectPhoto, (photo) => photo.project)
-  images: ProjectPhoto[];
+  images!: ProjectPhoto[];
 
   @Column({ type: 'datetime', default: () => 'CURRENT_TIMESTAMP' })
   createdAt: Date;
