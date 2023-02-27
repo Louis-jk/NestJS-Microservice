@@ -9,6 +9,9 @@ export class ProjectPhoto {
   @Column()
   url: string;
 
-  @ManyToOne(() => Project, (project) => project.images)
-  project: Project;
+  @ManyToOne(() => Project, (project) => project.images, {
+    nullable: false,
+    onDelete: 'CASCADE',
+  })
+  project!: Project;
 }
