@@ -2,7 +2,7 @@ import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
 import { Project } from '../project/project.entity';
 
 @Entity()
-export class ProjectPhoto {
+export class Image {
   @PrimaryGeneratedColumn()
   id: number;
 
@@ -13,5 +13,5 @@ export class ProjectPhoto {
     nullable: false,
     onDelete: 'CASCADE',
   })
-  project!: Project;
+  project: Project;
 }
