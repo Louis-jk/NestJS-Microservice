@@ -26,9 +26,9 @@ export class UserController {
     return this.userSevice.findAll();
   }
 
-  @Get(':id')
-  getUser(@Param('id', ParseIntPipe) id: number): Promise<User> {
-    return this.userSevice.findOne(id);
+  @Get(':email')
+  getUser(@Param('email') email: string): Promise<User> {
+    return this.userSevice.findOne(email);
   }
 
   @Patch(':id')
