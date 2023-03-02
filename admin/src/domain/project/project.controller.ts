@@ -25,9 +25,9 @@ export class ProJectController {
     return this.projectService.findAll();
   }
 
-  @Get(':email')
-  getProject(@Param('email') email: string): Promise<Project> {
-    return this.projectService.findOne(email);
+  @Get(':id')
+  getProject(@Param('id', ParseIntPipe) id: number): Promise<Project> {
+    return this.projectService.findOne(id);
   }
 
   @Delete(':id')
