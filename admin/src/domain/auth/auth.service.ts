@@ -12,5 +12,7 @@ export class AuthService {
       const { username, password, ...rest } = user;
       return rest;
     }
+
+    return null;
   }
 }
