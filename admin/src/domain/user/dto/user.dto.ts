@@ -8,6 +8,7 @@ import {
 import { IUser } from '../interface/user.interface';
 import { CreateAddressDto } from './address.dto';
 import { Type } from 'class-transformer';
+import { PartialType } from '@nestjs/mapped-types';
 export class CreateUserDto implements IUser {
   @IsNotEmpty()
   username: string;
@@ -29,4 +30,4 @@ export class CreateUserDto implements IUser {
   address: CreateAddressDto;
 }
 
-export class UpdateUserDto implements Partial<IUser> {}
+export class UpdateUserDto extends PartialType(CreateUserDto) {}
