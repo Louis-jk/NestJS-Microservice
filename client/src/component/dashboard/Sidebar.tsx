@@ -6,7 +6,9 @@ import {
   ChatLeftTextFill,
   BoxArrowInRight,
   ChevronDown,
+  Server,
 } from 'react-bootstrap-icons';
+import { Link } from 'react-router-dom';
 
 const Sidebar = () => {
   return (
@@ -31,6 +33,14 @@ const Sidebar = () => {
             className="text-[15px] ml-4 w-full bg-transparent focus:outline-none"
           />
         </div>
+        <Link to="project">
+          <div className="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-600 text-white">
+            <Server />
+            <span className="text-[15px] ml-4 text-gray-200 font-bold">
+              Project
+            </span>
+          </div>
+        </Link>
         <div className="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-600 text-white">
           <HouseFill />
           <span className="text-[15px] ml-4 text-gray-200 font-bold">Home</span>
