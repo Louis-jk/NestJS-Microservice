@@ -1,5 +1,6 @@
 import axios from 'axios';
 import Sidebar from '../../component/dashboard/Sidebar';
+import DashboardLayout from '../../layout/dashboard';
 
 const BASE_URL = process.env.REACT_APP_HOST;
 
@@ -34,8 +35,7 @@ const Dashboard = () => {
   ];
 
   return (
-    <div className="flex flex-row">
-      <Sidebar />
+    <DashboardLayout>
       <div className="flex mx-10 my-10">
         <ul className="divide-y divide-gray-200">
           {people.map((person) => (
@@ -55,7 +55,7 @@ const Dashboard = () => {
           ))}
         </ul>
       </div>
-    </div>
+    </DashboardLayout>
   );
 };
 
