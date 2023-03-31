@@ -4,7 +4,7 @@ const DashboardLayout = ({ children }: { children: JSX.Element }) => {
   return (
     <div className="flex flex-row">
       <Sidebar />
-      <div>{children}</div>
+      <div className="py-4 px-4">{children}</div>
     </div>
   );
 };
